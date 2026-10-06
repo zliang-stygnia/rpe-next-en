@@ -1,58 +1,58 @@
 # Re:PhiEdit Next
 
-作者：**cmdysj**。本项目是在原 **Re:PhiEdit（RPE）** 项目基础上，使用 **AI（GPT）** 进行的重构，是 Phigros 的非官方制谱器。
+Author：**cmdysj** “This project is a reconstruction of the original **Re:PhiEdit (RPE)** project, carried out with the use of **AI (GPT)**. Serves as an unofficial charting program for Phigros
 
 [在线使用](https://kclg-ysj.github.io/rpe-next/) · [源码](https://github.com/kclg-YSJ/rpe-next)
 
-当前版本：**0.7.1**。
+Current Ver.：**0.7.1**。
 
-基于 Canvas、Web Audio、WebGL 和 IndexedDB，支持音符与事件编辑、实时预览、着色器、多谱面管理、原 RPE 谱面导入、热键及设置迁移。当前仍在持续完善，尚不保证与原 RPE 完全一致；建议保留原始谱面与资源备份。
+Based on Canvas, Web Audio, WebGL, and IndexedDB. Supports note and event editing, real-time preview, shaders, multi-chart management, importing original RPE chart, and hotkey and transferable settings. It's still under developmnt and isn't guaranteed to be completely consistent with the original RPE; it is recommended to keep backups of your charts.
 
-## 使用
+## Usage
 
-推荐使用桌面版现代 Edge 或 Chrome，开启硬件加速。无需安装即可打开在线页面。
+It's recommend using the latest version of Edge or Chrome with hardware acceleration enabled. You can open online pages without installation
 
-- 在谱面库选择“打开 JSON / PEZ”，可导入谱面包或同时选择谱面、音乐、曲绘。
-- 迁移旧 RPE 时，选择包含 `Resources`、`Hotkey.txt`、`Settings.json` 的原 RPE 主文件夹。迁移读取原文件，并复制到当前浏览器谱面库；同标识名项目覆盖前会询问，`extra.json` 随资源迁移。
-- 选择谱面进入编辑，默认 Q/W/E/R 放置 Tap/Drag/Flick/Hold，空格暂停或继续。热键可在设置中修改。
-- 保存到谱面库后，可导出 PEZ 备份完整资源；单独导出的 JSON 不包含音乐和曲绘。
-- shader 仅作用于预览区域，重叠事件按顺序叠加，包括同类型 shader。
-- 多选自动打开多音符/多事件编辑，支持脚本、参数历史与命名收藏；事件支持克隆、批量切割和粘合。克隆可选择是否保留源事件，撤销/重做保留对应的多选状态。
+- In the chart library, select "Open JSON / PEZ" to import charts or create a new chart to import music, and illustration at the same time
+- When migrating from the old RPE, select the original RPE source folder containing `Resources`, `Hotkey.txt`, and `Settings.json`. The transfer will read the original files and copy them to the current browser's chart library; it will prompt you before overwriting items with the same identifier name, and `extra.json` will be migrated along with the resources.
+- Select a chart to enter edit mode. By default, Q/W/E/R keys are used for Tap/Drag/Flick/Hold, and spacebar is used to pause or resume. Hotkeys can be changed in the settings.
+- After saving to the chart library, you can export a PEZ backup of the complete resources; Exporting with JSON does not include music and chart illustrations
+- Shaders only affect the preview area. Overlapping events are applied based on line order, including shaders of the same type.
+- Multi-select automatically opens multi-note/multi-event editing, with support for scripts, parameter history, and named presets. Events support cloning, batch splitting, and merging. When cloning, you can choose whether to keep the source events. Undo/redo preserves the corresponding multi-selection state
 
-## 本地运行
+## How to run locally
 
-安装 Node.js 22 或更新版本，下载源码后在项目目录运行：
+Install Node.js version 22 or later, download the source code, and run this in the project directory:
 
 ```sh
 npm start
 ```
 
-Windows 也可双击 `start.cmd`。无需安装 npm 依赖。默认打开 `http://127.0.0.1:4173`，关闭终端会停止本地服务。
+On Windows, you can also double-click `start.cmd`. No npm dependency needs to be installed. It opens `http://127.0.0.1:4173` by default; closing the terminal will stop the localhost.
 
-## Windows 桌面测试版
+## Windows desktop-beta
 
-桌面包内置 Electron 运行环境，解压后双击 `RePhiEdit-Next.exe`，无需另装 Node.js 或浏览器。请保留整个文件夹。当前提供 Windows x64 版本，尚未进行代码签名。
+The desktop package includes a built-in Electron runtime. After extracting it, double-click `RePhiEdit-Next.exe`; there is no need to install Node.js or a browser separately. Please keep the entire folder intact. A Windows x64 version is currently provided, and it has not been code-signed yet.
 
-桌面版谱面、配置与自动备份保存在 `%APPDATA%\rpe-next-desktop`，与网页版谱面库独立；可通过 PEZ 导入或迁移原 RPE 文件夹转移项目。
+Desktop charts, configurations, and automatic backups are stored in `%APPDATA%\rpe-next-desktop`, independent from the web-based chart library; projects can be imported or migrated from the original RPE folder via PEZ.
 
-大贴图按需解码，并按当前显示尺度选择缓存分辨率；缩放放大时自动补充更高分辨率。该缓存不改变贴图坐标、逻辑尺寸或导出的原始素材。
+Large textures are decoded on demand, and the cache resolution is selected based on the current display scale. When zooming in, a higher-resolution version is automatically added to the cache. This cache does not change the texture coordinates, logical dimensions, or the original exported assets.
 
-仅在需要桌面包时手动运行（不会随网页构建或部署自动生成）：
+Run manually only when a desktop package is needed (it will not be generated automatically as part of the web build or deployment):
 
 ```sh
 npm ci
 npm run build:desktop
 ```
 
-产物位于 `release/`，只包含程序、内置素材与许可文件；不包含个人谱面和开发记录。开发调试可运行 `npm run desktop`。
+The build output is located in `release/` and contains only the program, bundled assets, and license files; it does not include personal charts or development records. For development and debugging, you can run `npm run desktop`.
 
-## 数据与隐私
+## Data & Privacy
 
-谱面、媒体、热键、设置和自动备份保存在当前浏览器的本地存储中，应用没有上传谱面的服务器或分析埋点。GitHub Pages 提供静态网页托管，访问网页时托管方可能记录常规访问日志。
+Charts, media, hotkeys, settings, and automatic backups are stored in the current browser's local storage. The application does not have a server for uploading charts or any analytics/tracking. GitHub Pages provides static web hosting, and the hosting provider may record standard access logs when the website is visited.
 
-不同浏览器、地址、端口及在线/本地版本的谱面库相互独立。清除网站数据可能删除谱面库和自动备份，请定期导出 PEZ。选择原 RPE 文件夹只用于本地读取迁移，不会自动上传文件。
+Chart libraries are independent between different browsers, addresses, ports, and online/local versions. Clearing website data may delete your chart library and automatic backups, so export your PEZ files regularly. Selecting the original RPE folder is only used to read and transfer files locally; files will not be uploaded automatically.
 
-## 开发
+## dev
 
 ```sh
 npm test
@@ -61,10 +61,10 @@ npm run smoke-build
 npm run build:pages
 ```
 
-`build` 生成可本地运行的 `dist/`；`build:pages` 仅生成静态网站。推送到 `main` 后，GitHub Actions 自动测试并部署 GitHub Pages。
+`build` generates a locally runnable `dist/`; `build:pages` only generates the static page. After pushing to `main`, GitHub Actions automatically runs tests and deploys GitHub Pages.
 
-## 许可与来源
+## Licensing and Attribution
 
-本项目采用 [PolyForm Noncommercial 1.0.0](LICENSE)，仅许可符合条款的非商业用途，商业用途需另行取得授权。它属于源码可用许可，不是 OSI 定义的开源许可。再分发须保留许可证及 [NOTICE](NOTICE) 中的必需声明。
+This project is licensed under [PolyForm Noncommercial 1.0.0](LICENSE), which permits only non-commercial use that complies with its terms; commercial use requires separate authorization. It is a source-available license, not an open-source license as defined by the OSI. Redistribution must retain the license and the required notices in [NOTICE](NOTICE).
 
-原 RPE 代码与素材是本次重构的基础，保留其来源及相应权利；独立第三方内容的原有权利和许可不因本项目许可而改变。本项目并非 Phigros 官方产品。
+The original RPE code and assets form the basis of this reconstruction, and their attribution and applicable rights are retained; the original rights and licenses of independent third-party content are not changed by this project's license. This project is not an official Phigros product.
