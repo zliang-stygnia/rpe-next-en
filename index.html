@@ -4,23 +4,23 @@
 <body>
   <header>
     <div class="brand"><img src="./assets/rpe/icons/rpelogo.png" alt="RPE"><span>Re:PhiEdit <small>NEXT</small></span></div>
-    <div id="document-name">未命名谱面</div>
+    <div id="document-name">Untitled Chart</div>
     <nav aria-label="文件">
-      <button id="new">新建</button><button id="open" data-icon="folder">打开 JSON / PEZ</button>
-      <button id="save" data-icon="save">保存 <kbd>Ctrl S</kbd></button><button id="export-json">另存 JSON</button><button id="package">导出 PEZ</button>
-      <button id="library" class="home-back" title="返回主界面，管理谱面">← 返回主界面</button><button id="migrate">迁移旧 RPE</button><button id="recover">恢复备份</button>
-      <button id="preferences" data-icon="setting" title="热键与设置">设置</button><button id="help" data-icon="help" title="帮助">帮助</button>
+      <button id="new">New Chart</button><button id="open" data-icon="folder">Open JSON / PEZ</button>
+      <button id="save" data-icon="save">保存 <kbd>Ctrl S</kbd></button><button id="export-json">Save As JSON</button><button id="package">Export PEZ</button>
+      <button id="library" class="home-back" title="返回主界面，管理谱面">← Return to Main Menu</button><button id="migrate">Transfer old RPE</button><button id="recover">Recover Backup</button>
+      <button id="preferences" data-icon="setting" title="热键与设置">Settings</button><button id="help" data-icon="help" title="帮助">Help</button>
     </nav>
   </header>
-  <section class="transport" aria-label="播放与时间">
-    <div class="transport-group"><button id="play" class="primary" data-icon="play" title="播放 / 暂停">播放</button><button id="rewind" data-icon="replay" title="回到开头">回到开头</button><button id="view-toggle" data-icon="showback" title="播放预览 / 返回编辑">播放预览</button></div>
-    <div class="line-select-group"><label>判定线 <select id="line-select" aria-label="当前判定线"></select></label><span class="line-step"><button id="line-next" aria-label="线号加一" title="线号加一">▴</button><button id="line-previous" aria-label="线号减一" title="线号减一">▾</button></span></div><label>延迟 <input id="offset" type="number" step="1" aria-label="谱面延迟（毫秒）"></label><div class="batch-execute"><select id="batch-action" aria-label="批量修改选中音符"></select><button id="batch-run" aria-label="执行批量修改">▶</button></div>
+  <section class="transport" aria-label="Playback and Timing">
+    <div class="transport-group"><button id="play" class="primary" data-icon="play" title="播放 / 暂停">Play/Pause</button><button id="rewind" data-icon="replay" title="回到开头">Jump to Beginning</button><button id="view-toggle" data-icon="showback" title="播放预览 / 返回编辑">Preview Chart</button></div>
+    <div class="line-select-group"><label>Line <select id="line-select" aria-label="当前判定线"></select></label><span class="line-step"><button id="line-next" aria-label="线号加一" title="线号加一">▴</button><button id="line-previous" aria-label="线号减一" title="线号减一">▾</button></span></div><label>Previous Line <input id="offset" type="number" step="1" aria-label="谱面延迟（毫秒）"></label><div class="batch-execute"><select id="batch-action" aria-label="批量修改选中音符"></select><button id="batch-run" aria-label="执行批量修改">▶</button></div>
     <label class="beat-seek">拍数 <input id="seek-beat" value="0" aria-label="定位拍数"></label><button id="seek" data-icon="jump" title="定位到输入的拍数">定位</button>
     <output id="clock">0.000 s</output><output id="bpm-display">120 BPM</output>
     <div class="scrubber-wrap"><div id="timeline-markers" aria-label="时间标记"></div><input id="scrubber" type="range" min="0" max="600" step="0.001" value="0" aria-label="播放进度"></div>
     <label>倍速 <select id="rate"><option>0.25</option><option>0.5</option><option>0.75</option><option selected>1</option><option>1.25</option><option>1.5</option><option>2</option></select></label><label class="preserve-pitch" title="变速不变调"><input id="preserve-pitch" type="checkbox" checked><span>保调</span></label>
   </section>
-  <div class="workspace">
+  <div class="workspace">  
     <main class="editor panel">
       <div class="editor-toolbar">
         <button id="toolbar-mode" type="button" title="切换工具栏显示模式" aria-label="切换工具栏显示模式">☷</button>
